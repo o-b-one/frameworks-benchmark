@@ -18,20 +18,20 @@ artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/node-r
 pkill -f rawnodeserver
 sleep 5
 
- echo restify >> "
+ echo restify
  node restifyserver.js & sleep 5
  artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/restify.report.json"
  pkill -f restifyserver
  sleep 5
 
 
- echo koa2 >> "
+ echo koa2
  node koa2server.js & sleep 5
  artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/koa.report.json"
  pkill -f koa2server
  sleep 5
 
-echo express >> "
+echo express
 node expressserver.js & sleep 5
 artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/express.report.json"
 pkill -f expressserver
