@@ -1,13 +1,3 @@
-KOA2
-
-https://www.npmjs.com/package/koa2
 
 
-Adonis
-
-http://www.adonisjs.com/docs/3.2/installation#_creating_new_project
-
-
-Sailsjs
-
-http://sailsjs.com/get-started
+This benchmark test is the updated version of the [original repo](https://github.com/PlainSight/NodeRestPerfTest3)

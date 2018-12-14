@@ -3,8 +3,8 @@
 const Hapi = require('hapi');
 
 // Create a server with a host and port
-const server = new Hapi.Server();
-server.connection({ 
+const server = new Hapi.server();
+server.connection({
     host: 'localhost', 
     port: 8000 
 });
@@ -14,15 +14,18 @@ server.route({
     method: 'GET',
     path:'/', 
     handler: function (request, reply) {
-        return reply('Hello World!').header('Connection', 'close');
+        return 'Hello World!';
     }
 });
+const init = async function(){
+    await server.start();
+    console.log(`Server running at: ${server.info.uri}`);
+};
 
-// Start the server
-server.start((err) => {
+process.on('unhandledRejection', (err) => {
 
-    if (err) {
-        throw err;
-    }
-    console.log('Server running at:', server.info.uri);
+    console.log(err);
+process.exit(1);
 });
+
+init();

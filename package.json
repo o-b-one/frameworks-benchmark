@@ -1,0 +1,28 @@
+{
+  "name": "benchmarks",
+  "version": "1.0.0",
+  "description": "Benchmarks for different nodejs frameworks",
+  "main": "expressserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PlainSight/NodeRestPerfTest3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PlainSight/NodeRestPerfTest3/issues"
+  },
+  "homepage": "https://github.com/PlainSight/NodeRestPerfTest3#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "hapi": "^17.8.1",
+    "koa": "^2.6.2",
+    "koa2": "^2.0.0-alpha.7",
+    "n": "^2.1.12",
+    "restify": "^7.3.0",
+    "total.js": "^3.1.0"
+  }
+}

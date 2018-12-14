@@ -1,0 +1,47 @@
+{
+  "name": "benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "../dist/server.js",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf dist",
+    "dev": "webpack --config ./config/webpack/webpack.server.js --progress --profile --bail --display-chunks --hide-modules --watch",
+    "start": "npm run clean && npm run build:server && node dist/server.js &",
+    "start:dev": "npm run dev & &&  npm run start:watch",
+    "start:watch": "nodemon dist/server.js --inspect ./node_modules/webpack/bin/webpack.js",
+    "build": "npm run clean && npm run build:server",
+    "build:server": "webpack --config ./config/webpack/webpack.server.js --progress --profile --bail --display-chunks --hide-modules",
+    "test": "npm run clean && npm run test:server",
+    "test:server": "echo 'not implemented'",
+    "test:server:watch": "echo 'not implemented'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sugoi/socket": "^3.2.0",
+    "@sugoi/server": "^3.2.2",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/compression": "0.0.36",
+    "@types/node": "^10.12.12",
+    "@types/winston": "^2.4.4",
+    "@sugoi/cli": "^3.0.4",
+    "awesome-typescript-loader": "^5.2.1",
+    "codelyzer": "^4.5.0",
+    "nodemon": "^1.18.7",
+    "rimraf": "^2.6.2",
+    "ts-helpers": "^1.1.2",
+    "typescript": "^3.2.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "^4.1.4",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
