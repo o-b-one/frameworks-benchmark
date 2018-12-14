@@ -3,69 +3,72 @@
 currentWd=$(pwd)
 resultDir="$currentWd/results"
 
-##echo hapi >> "$resultDir"
+rm -rf $resultDir
+mkdir $resultDir
+
+#echo hapi >> "$resultDir"
 #node hapiserver.js & sleep 5
-#artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ "$resultDir/hapi.report.json"
+#artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/hapi.report.json"
 #pkill -f hapiserver
 #sleep 5
 
-#echo node-raw >> "$resultDir"
+echo node-raw
 node rawnodeserver.js & sleep 5
-artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ "$resultDir/node-raw.report.json"
+artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/node-raw.report.json"
 pkill -f rawnodeserver
 sleep 5
 
- #echo restify >> "$resultDir"
+ echo restify >> "
  node restifyserver.js & sleep 5
- artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ "$resultDir/restify.report.json"
+ artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/restify.report.json"
  pkill -f restifyserver
  sleep 5
 
 
- #echo koa2 >> "$resultDir"
+ echo koa2 >> "
  node koa2server.js & sleep 5
- artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ "$resultDir/koa.report.json"
+ artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/koa.report.json"
  pkill -f koa2server
  sleep 5
 
-#echo express >> "$resultDir"
+echo express >> "
 node expressserver.js & sleep 5
-artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ "$resultDir/express.report.json"
+artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/express.report.json"
 pkill -f expressserver
 sleep 5
 
-#echo SugoiJS >> "$resultDir"
+echo SugoiJS >> "
 cd sugoijs/server && npm run start & sleep 5
 cd ../
 artillery quick --count 50000 -d 20 http://127.0.0.1:3000/index sugoijs.report.json
 pkill -f server
 sleep 5
 
-#echo total.js >> "$resultDir"
+echo total.js
 node totalserver/total.js & sleep 5
-artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ "$resultDir/total.report.json"
+artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/total.report.json"
 pkill -f total
 sleep 5
 
-#echo sails.js >> "$resultDir"
+echo sails.js
 cd ./test-project
 sails lift & sleep 5
 cd ../
-artillery quick --count 50000 -d 20 http://127.0.0.1:1337/ "$resultDir/sailsjs.report.json"
+artillery quick --count 50000 -d 20 http://127.0.0.1:1337/ -o "$resultDir/sailsjs.report.json"
 pkill -f sails
 sleep 5
 
-##echo adonis.js >> "$resultDir"
+#echo adonis.js
 #cd yardstick
 #npm start run & sleep 5
 #cd ../
-#artillery quick --count 50000 -d 20 http://127.0.0.1:3333/ "$resultDir/adonis.report.json"
+#artillery quick --count 50000 -d 20 http://127.0.0.1:3333/ -o "$resultDir/adonis.report.json"
 #pkill -f server.js
 #sleep 5
 
-#echo NestJS >> "$resultDir"
+echo NestJS >> "
 cd nestjs && npm run build && npm run start:prod && sleep 5
 cd ../
-artillery quick --count 50000 -d 20 http://127.0.0.1:3000/ "$resultDir/nest.report.json"
+artillery quick --count 50000 -d 20 http://127.0.0.1:3000/ -o "$resultDir/nest.report.json"
 pkill -f node
 sleep 5
