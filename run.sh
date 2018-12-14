@@ -38,7 +38,7 @@ pkill -f expressserver
 sleep 5
 
 echo SugoiJS
-cd sugoijs/server && npm run start & sleep 5
+cd sugoijs/server && npm run start && sleep 5
 cd ../
 artillery quick --count 50000 -d 20 http://127.0.0.1:3000/index -o "$resultDir/sugoijs.report.json"
 pkill -f server
