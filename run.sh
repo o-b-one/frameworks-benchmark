@@ -51,7 +51,7 @@ pkill -f total
 sleep 5
 
 echo sails.js
-cd ./test-project
+cd ./sailsjs
 sails lift & sleep 5
 cd ../
 artillery quick --count 50000 -d 20 http://127.0.0.1:1337/ -o "$resultDir/sailsjs.report.json"
