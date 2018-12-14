@@ -6,7 +6,7 @@ resultDir="$currentWd/results"
 rm -rf $resultDir
 mkdir $resultDir
 
-#echo hapi >> "$resultDir"
+#echo hapi
 #node hapiserver.js & sleep 5
 #artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/hapi.report.json"
 #pkill -f hapiserver
@@ -37,10 +37,10 @@ artillery quick --count 50000 -d 20 http://127.0.0.1:8000/ -o "$resultDir/expres
 pkill -f expressserver
 sleep 5
 
-echo SugoiJS >> "
+echo SugoiJS
 cd sugoijs/server && npm run start & sleep 5
 cd ../
-artillery quick --count 50000 -d 20 http://127.0.0.1:3000/index sugoijs.report.json
+artillery quick --count 50000 -d 20 http://127.0.0.1:3000/index -o "$resultDir/sugoijs.report.json"
 pkill -f server
 sleep 5
 
@@ -66,7 +66,7 @@ sleep 5
 #pkill -f server.js
 #sleep 5
 
-echo NestJS >> "
+echo NestJS
 cd nestjs && npm run build && npm run start:prod && sleep 5
 cd ../
 artillery quick --count 50000 -d 20 http://127.0.0.1:3000/ -o "$resultDir/nest.report.json"
