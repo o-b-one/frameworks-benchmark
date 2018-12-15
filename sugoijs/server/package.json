@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "webpack --config ./config/webpack/webpack.server.js --progress --profile --bail --display-chunks --hide-modules --watch",
-    "start": "npm run clean && npm run build:server && node dist/server.js &",
+    "start": "npm run clean && npm run build:server && NODE_ENV=production node dist/server.js &",
     "start:dev": "npm run dev & &&  npm run start:watch",
     "start:watch": "nodemon dist/server.js --inspect ./node_modules/webpack/bin/webpack.js",
     "build": "npm run clean && npm run build:server",
