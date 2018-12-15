@@ -15,12 +15,9 @@ export class IndexController {
     }
 
 
-    @HttpGet("/:payload?")
-    async index(@RequestParam("payload") payload:string){
-        const responseMsg = "index is ready!";
-        return payload
-                ? `${responseMsg} got payload ${payload}`
-                : `${responseMsg}`;
+    @HttpGet("/")
+    index(){
+        return "index is ready!";
     }
 
 }
