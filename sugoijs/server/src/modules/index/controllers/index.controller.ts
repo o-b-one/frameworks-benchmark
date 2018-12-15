@@ -7,7 +7,6 @@ import {
 import { IndexService } from "../services/index.service";
 
 @Controller('/index')
-@Authorized()
 export class IndexController {
 
     constructor(
