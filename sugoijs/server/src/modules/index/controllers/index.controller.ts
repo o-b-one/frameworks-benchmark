@@ -1,8 +1,9 @@
 import {
     Controller,
     HttpGet,
-    RequestParam,
-    Authorized
+    RequestQueryParamsSchemaPolicy,
+    ComparableSchema,
+    SchemaTypes
  } from "@sugoi/server";
 import { IndexService } from "../services/index.service";
 
@@ -16,6 +17,9 @@ export class IndexController {
 
 
     @HttpGet("/")
+    @RequestQueryParamsSchemaPolicy(ComparableSchema.ofType({
+        t:ComparableSchema.ofType(SchemaTypes.STRING).setMandatory(false)
+    }))
     index(){
         return "index is ready!";
     }
