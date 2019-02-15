@@ -18,14 +18,14 @@
   "homepage": "https://github.com/PlainSight/NodeRestPerfTest3#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "hapi": "^17.8.1",
-    "koa": "^2.6.2",
+    "hapi": "^17.8.4",
+    "koa": "^2.7.0",
     "koa2": "^2.0.0-alpha.7",
     "n": "^2.1.12",
-    "restify": "^7.3.0",
-    "total.js": "^3.1.0"
+    "restify": "^7.7.0",
+    "total.js": "^3.2.2"
   },
   "devDependencies": {
-    "artillery": "^1.6.0-26"
+    "artillery": "^1.6.0-27"
   }
 }

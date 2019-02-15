@@ -1,7 +1,9 @@
+#!/bin/bash
 apt-get install apache2-utils
 apt-get install npm
 npm install n -g
 n latest
+sudo npm install -g artillery
 npm install
 
 cd sugoijs/server && npm i && cd ../../
