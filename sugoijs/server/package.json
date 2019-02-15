@@ -7,8 +7,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "webpack --config ./config/webpack/webpack.server.js --progress --profile --bail --display-chunks --hide-modules --watch",
-    "start": "npm run clean && npm run build:server && NODE_ENV=production node dist/server.js &",
-    "start:dev": "npm run dev & &&  npm run start:watch",
+    "start": "npm run build && NODE_ENV=production node dist/server.js &",
+    "start:dev": "npm run dev  &&  npm run start:watch",
     "start:watch": "nodemon dist/server.js --inspect ./node_modules/webpack/bin/webpack.js",
     "build": "npm run clean && npm run build:server",
     "build:server": "webpack --config ./config/webpack/webpack.server.js --progress --profile --bail --display-chunks --hide-modules",
@@ -36,6 +36,7 @@
     "nodemon": "^1.18.9",
     "rimraf": "^2.6.2",
     "ts-helpers": "^1.1.2",
+    "ts-node": "^8.0.2",
     "typescript": "^3.2.1",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.27.1",

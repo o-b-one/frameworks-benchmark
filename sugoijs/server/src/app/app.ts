@@ -6,20 +6,24 @@ import { paths } from "../config/paths";
 import { BootstrapModule } from "./bootstrap.module";
 import { Authorization } from "./classes/authorization.class"
 
-const DEVELOPMENT = process.env.ENV.indexOf('dev') !== -1;
-const TESTING = process.env.ENV.indexOf('test') !== -1;
+const DEVELOPMENT = false//process.env.ENV.indexOf('dev') !== -1;
+const TESTING = false//process.env.ENV.indexOf('test') !== -1;
 
 
 
 const server: HttpServer = HttpServer.init(BootstrapModule, "/", null, Authorization)
-    .setStatic(paths.staticDir) // set static file directory path
+//    .setStatic(paths.staticDir) // set static file directory path
     .setMiddlewares((app) => {
         app.disable('x-powered-by');
         app.set('etag', 'strong');
         app.set('host', process.env.HOST || '0.0.0.0');
         app.use(bodyParser.json());
         app.use(compression());
-
+app.use((req,res,next)=>{
+if((req.originalUrl != "/index"))
+console.log(req.originalUrl);
+next()
+})
     })
     .setErrorHandlers((app) => {
         app.use((req, res, next) => {

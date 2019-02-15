@@ -17,9 +17,9 @@ export class IndexController {
 
 
     @HttpGet("/")
-    @RequestQueryParamsSchemaPolicy(ComparableSchema.ofType({
+/*    @RequestQueryParamsSchemaPolicy(ComparableSchema.ofType({
         t:ComparableSchema.ofType(SchemaTypes.STRING).setMandatory(false)
-    }))
+    }))*/
     index(){
         return "index is ready!";
     }
